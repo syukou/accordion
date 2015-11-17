@@ -6,26 +6,24 @@ var SYUKOU = SYUKOU || {};
 
 SYUKOU.COMMON = {};
 
-SYUKOU.COMMON.ACCORDION = function($target){
+SYUKOU.COMMON.ACCORDION = function ($target) {
 	this.$target = $target;
 	this.init();
 };
 
 SYUKOU.COMMON.ACCORDION.prototype = {
-	init : function(){
+	init: function () {
 		this.setParameters();
 		this.runEvent();
 	},
-	setParameters : function(){
+	setParameters: function () {
 		this.$trigger = this.$target.find('dt');
 		this.$target = this.$target.find('dd');
 	},
-	runEvent : function(){
-
+	runEvent: function () {
 		var _self = this;
-
-		this.$trigger.on('click', function(){
-			if(_self.$target.is(':visible')){
+		this.$trigger.on('click', function () {
+			if (_self.$target.is(':visible')) {
 				$(this).removeClass('open');
 				_self.$target.slideUp();
 			} else {
@@ -37,10 +35,8 @@ SYUKOU.COMMON.ACCORDION.prototype = {
 };
 
 
-$(function(){
-
-	$('.jsc-accordion').each(function(){
+$(function () {
+	$('.jsc-accordion').each(function () {
 		new SYUKOU.COMMON.ACCORDION($(this));
 	});
-
 });
